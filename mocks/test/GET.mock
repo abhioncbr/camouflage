@@ -1,0 +1,19 @@
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{{#csv src="./test.csv" key="City" value="Worcester"}}
+(()=> {
+    return {
+        status: 201,
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: `{
+            "City": "${result[0].City}",
+            "State": "${result[0].State}",
+            "LatD": ${result[0].LatD},
+            "LonD": ${result[0].LonD}
+        }`
+    };
+})();
+{{/csv}}
